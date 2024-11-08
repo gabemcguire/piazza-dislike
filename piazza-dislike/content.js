@@ -11,23 +11,26 @@ function getUserId() {
 }
 // Function to generate a unique ID for each comment or answer
 function generateCommentId(element) {
+  //get class id
+  classId=window.location.pathname.split('/')[2];
+  console.log(window.location.pathname.split('/'));
+  
   // For instructor answers
   if (element.matches('article[data-id="i_answer"]')) {
     const postId = window.location.pathname.split('/').pop();
-    return `${postId}-instructor_answer`;
+    return `${classId}-${postId}-instructor_answer`;
   }
   
   // For instructor notes
   if (element.matches('article#qaContentViewId.main[aria-label="note"]')) {
     const noteId = element.querySelector('.post_number_copy')?.textContent.replace('@', '') || 
                   window.location.pathname.split('/').pop();
-    return `note-${noteId}`;
+    return `${classId}-note-${noteId}`;
   }
-  
   // For regular comments
   const postId = element.closest('.post')?.getAttribute('data-id');
   const commentId = element.getAttribute('data-comment-id');
-  return `${postId}-${commentId}`;
+  return `${classId}-${postId}-${commentId}`;
 }
 
 // Function to add dislike button to a comment or answer
