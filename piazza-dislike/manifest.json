@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Piazza Dislikes",
+  "version": "1.0",
+  "description": "Adds dislike functionality to Piazza comments",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.piazza.com/*",
+    "http://localhost:3000/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://piazza.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ]
+}

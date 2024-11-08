@@ -1,0 +1,36 @@
+.dislike-button {
+  cursor: pointer;
+  margin-left: 8px;
+  color: #666;
+  text-decoration: none;
+}
+
+.dislike-button.active {
+  color: #dc3545;
+}
+
+.dislike-count {
+  margin-left: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+/* For instructor answers */
+article[data-id="i_answer"] .dislike-button {
+  color: #212529;
+  padding: 0;
+  margin-left: 1rem;
+}
+
+article[data-id="i_answer"] .dislike-button:hover {
+  color: #dc3545;
+  text-decoration: none;
+}
+
+article[data-id="i_answer"] .dislike-button.active {
+  color: #dc3545;
+}
+
+article[data-id="i_answer"] .dislike-count {
+  color: #6c757d;
+}
