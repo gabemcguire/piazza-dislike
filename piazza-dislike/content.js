@@ -13,7 +13,7 @@ function getUserId() {
 function generateCommentId(element) {
   //get class id
   classId = window.location.pathname.split('/')[2];
-  console.log(window.location.pathname.split('/'));
+  // console.log(window.location.pathname.split('/'));
   
   // For instructor answers
   if (element.matches('article[data-id="i_answer"]')) {
@@ -141,7 +141,7 @@ async function addDislikeButton(element) {
 
 // Function to add dislike buttons to all existing content
 function addDislikeButtonsToExisting() {
-  console.log('Adding dislike buttons to existing content');
+  // console.log('Adding dislike buttons to existing content');
   
   // Use a Set to track elements we've processed
   const processedElements = new Set();
@@ -165,7 +165,7 @@ function addDislikeButtonsToExisting() {
 
 // Function to observe DOM changes and add dislike buttons to new comments
 function observeComments() {
-  console.log('Setting up MutationObserver');
+  // console.log('Setting up MutationObserver');
   
   // Use a Set to track elements we've processed
   const processedElements = new Set();
@@ -205,7 +205,7 @@ let observerInitialized = false;
 
 // Initialize
 function init() {
-  console.log('Initializing Piazza Dislikes extension');
+  // console.log('Initializing Piazza Dislikes extension');
   // Add buttons to existing content
   addDislikeButtonsToExisting();
   
@@ -229,10 +229,10 @@ function safeInit() {
 
 // Wait for page to load
 if (document.readyState === 'loading') {
-  console.log('Document still loading, adding DOMContentLoaded listener');
+  // console.log('Document still loading, adding DOMContentLoaded listener');
   document.addEventListener('DOMContentLoaded', safeInit);
 } else {
-  console.log('Document already loaded, initializing immediately');
+  // console.log('Document already loaded, initializing immediately');
   safeInit();
 }
 

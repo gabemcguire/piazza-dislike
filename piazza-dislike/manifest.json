@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Dislikes For Piazza",
+  "name": "Dislikes For Piazza™",
   "version": "0.0.0.1",
   "description": "Adds dislike functionality to Piazza",
   "permissions": [
@@ -9,7 +9,7 @@
   ],
   "host_permissions": [
     "*://*.piazza.com/*",
-    "http://localhost:3000/*"
+    "https://forum-dislike-extension.fly.dev/*"
   ],
   "content_scripts": [
     {
