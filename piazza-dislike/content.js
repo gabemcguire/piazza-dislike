@@ -1,4 +1,4 @@
-const BACKEND_URL = 'https://piazza-dislike-server.fly.dev';
+const BACKEND_URL = 'https://forum-dislike-extension.fly.dev';
 
 function getUserId() {
   let userId = localStorage.getItem('piazza_dislikes_user_id');

@@ -15,6 +15,9 @@ const client = new MongoClient(uri);
 app.use(cors());
 app.use(express.json());
 
+// serve static files (privacy policy)
+app.use(express.static('public'))
+
 // Connect to MongoDB
 async function connectDB() {
   try {

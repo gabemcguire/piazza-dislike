@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Dislikes for Piazza Extension</title>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --text-color: #1f2937;
+            --background-color: #f8fafc;
+            --container-background: #ffffff;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .policy-content {
+            background-color: var(--container-background);
+            border-radius: 0.5rem;
+            padding: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="policy-content">
+            <h1>Privacy Policy</h1>
+            <p>Last updated: November 9, 2024</p>
+
+            <h2>Overview</h2>
+            <p>The Piazza Dislikes browser extension ("Extension") is designed to enhance the Piazza learning experience by allowing users to express disagreement or mark content as unhelpful. This privacy policy explains how we collect, use, and protect your data.</p>
+
+            <h2>Information We Collect</h2>
+            <p>The Extension collects the following information:</p>
+            <ul>
+                <li><strong>User ID:</strong> A randomly generated UUID stored locally in your browser's localStorage to identify your dislikes</li>
+                <li><strong>Interaction Data:</strong> When you dislike content, we store:
+                    <ul>
+                        <li>The unique identifier of the disliked content (class ID, post ID, and comment type)</li>
+                        <li>Your dislike action (add or remove)</li>
+                        <li>Timestamp of the interaction</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h2>How We Use Your Data</h2>
+            <p>We use the collected data to:</p>
+            <ul>
+                <li>Track and display dislike counts on Piazza content</li>
+                <li>Remember which content you have disliked</li>
+                <li>Generate anonymous aggregate statistics about content helpfulness</li>
+            </ul>
+
+            <h2>Data Storage</h2>
+            <p>Your data is stored in two locations:</p>
+            <ul>
+                <li><strong>Local Storage:</strong> Your unique user ID is stored in your browser's localStorage</li>
+                <li><strong>Server Storage:</strong> Dislike data is stored on our secure server.</li>
+            </ul>
+
+            <h2>Data Protection</h2>
+            <p>We take the following measures to protect your data:</p>
+            <ul>
+                <li>We do not collect any personally identifiable information</li>
+                <li>User IDs are randomly generated and not linked to Piazza accounts</li>
+                <li>Data is transmitted using secure HTTPS connections</li>
+                <li>We do not share your data with third parties</li>
+            </ul>
+
+            <h2>Your Rights</h2>
+            <p>You have the right to:</p>
+            <ul>
+                <li>Clear your local user ID by clearing your browser's localStorage</li>
+                <li>Remove your dislikes at any time using the extension interface</li>
+                <li>Stop using the extension at any time by disabling or uninstalling it</li>
+            </ul>
+
+            <h2>Changes to This Policy</h2>
+            <p>We may update this privacy policy from time to time. We will notify users of any material changes by updating the "Last updated" date at the top of this policy.</p>
+
+            <h2>Contact</h2>
+            <p>If you have any questions or concerns about this privacy policy or the Extension's data practices, please open an issue on our GitHub repository.</p>
+
+            <div class="footer">
+                <p>Piazza Dislikes Extension - Privacy Policy</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

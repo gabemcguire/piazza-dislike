@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Piazza Dislikes",
-  "version": "1.0",
-  "description": "Adds dislike functionality to Piazza comments",
+  "name": "Dislikes For Piazza",
+  "version": "0.0.0.1",
+  "description": "Adds dislike functionality to Piazza",
   "permissions": [
     "storage",
     "activeTab"
@@ -17,5 +17,11 @@
       "js": ["content.js"],
       "css": ["styles.css"]
     }
-  ]
+  ],
+   "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
 }
