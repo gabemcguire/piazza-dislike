@@ -47,9 +47,6 @@ Visit this [Piazza demo post](https://piazza.com/class/gw9jakygzvs616/post/359) 
 - **Remove Dislike**: Click the dislike button again to remove your dislike. The count should decrease accordingly.
 - **Persistent Dislike State**: The extension should remember dislikes based on user ID and maintain them on page reloads.
 
-### 3. Screenshots and Video
-For additional context, you can refer to the [screenshots](#) and [demo video](#) in this repository (or shared with reviewers) showcasing the extension’s functionality.
-
 ## Support
 For any questions or troubleshooting, feel free to reach out via the support options provided in the Chrome Web Store listing.
 
