@@ -1,4 +1,3 @@
-// content.js
 const BACKEND_URL = 'https://piazza-dislike-server.fly.dev';
 
 function getUserId() {
@@ -9,10 +8,11 @@ function getUserId() {
   }
   return userId;
 }
+
 // Function to generate a unique ID for each comment or answer
 function generateCommentId(element) {
   //get class id
-  classId=window.location.pathname.split('/')[2];
+  classId = window.location.pathname.split('/')[2];
   console.log(window.location.pathname.split('/'));
   
   // For instructor answers
@@ -21,12 +21,19 @@ function generateCommentId(element) {
     return `${classId}-${postId}-instructor_answer`;
   }
   
+  // For student answers
+  if (element.matches('article[data-id="s_answer"]')) {
+    const postId = window.location.pathname.split('/').pop();
+    return `${classId}-${postId}-student_answer`;
+  }
+  
   // For instructor notes
   if (element.matches('article#qaContentViewId.main[aria-label="note"]')) {
     const noteId = element.querySelector('.post_number_copy')?.textContent.replace('@', '') || 
                   window.location.pathname.split('/').pop();
     return `${classId}-note-${noteId}`;
   }
+  
   // For regular comments
   const postId = element.closest('.post')?.getAttribute('data-id');
   const commentId = element.getAttribute('data-comment-id');
@@ -42,8 +49,9 @@ async function addDislikeButton(element) {
   let dislikeCount;
   let targetContainer;
 
-  // For instructor answers or notes
+  // For instructor answers, student answers, or notes
   if (element.matches('article[data-id="i_answer"]') || 
+      element.matches('article[data-id="s_answer"]') ||
       element.matches('article#qaContentViewId.main[aria-label="note"]')) {
     const footer = element.querySelector('footer .col-auto');
     if (!footer) return;
@@ -51,8 +59,15 @@ async function addDislikeButton(element) {
     dislikeButton = document.createElement('button');
     dislikeButton.className = 'text-notrans btn btn-link dislike-button';
     dislikeButton.setAttribute('aria-label', 'mark this as unhelpful');
-    dislikeButton.innerHTML = element.matches('article[data-id="i_answer"]') ? 
-                             '👎 not helpful' : '👎 not useful';
+    
+    // Set appropriate button text based on element type
+    if (element.matches('article[data-id="i_answer"]')) {
+      dislikeButton.innerHTML = '👎 not helpful';
+    } else if (element.matches('article[data-id="s_answer"]')) {
+      dislikeButton.innerHTML = '👎 not helpful';
+    } else {
+      dislikeButton.innerHTML = '👎 not useful';
+    }
     
     dislikeCount = document.createElement('div');
     dislikeCount.className = 'd-inline-block ml-1 dislike-count';
@@ -131,8 +146,8 @@ function addDislikeButtonsToExisting() {
   // Use a Set to track elements we've processed
   const processedElements = new Set();
   
-  // First handle instructor answers and notes
-  document.querySelectorAll('article[data-id="i_answer"], article#qaContentViewId.main[aria-label="note"]').forEach(element => {
+  // Handle instructor answers, student answers, and notes
+  document.querySelectorAll('article[data-id="i_answer"], article[data-id="s_answer"], article#qaContentViewId.main[aria-label="note"]').forEach(element => {
     if (!processedElements.has(element)) {
       processedElements.add(element);
       addDislikeButton(element);
@@ -140,7 +155,7 @@ function addDislikeButtonsToExisting() {
   });
   
   // Then handle regular comments
-  document.querySelectorAll('.comment:not(article[data-id="i_answer"]):not(article#qaContentViewId)').forEach(element => {
+  document.querySelectorAll('.comment:not(article[data-id="i_answer"]):not(article[data-id="s_answer"]):not(article#qaContentViewId)').forEach(element => {
     if (!processedElements.has(element)) {
       processedElements.add(element);
       addDislikeButton(element);
@@ -159,8 +174,8 @@ function observeComments() {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((node) => {
         if (node.nodeType === Node.ELEMENT_NODE) {
-          // First check instructor answers and notes
-          node.querySelectorAll('article[data-id="i_answer"], article#qaContentViewId.main[aria-label="note"]').forEach(element => {
+          // Check instructor answers, student answers, and notes
+          node.querySelectorAll('article[data-id="i_answer"], article[data-id="s_answer"], article#qaContentViewId.main[aria-label="note"]').forEach(element => {
             if (!processedElements.has(element)) {
               processedElements.add(element);
               addDislikeButton(element);
@@ -168,7 +183,7 @@ function observeComments() {
           });
           
           // Then check regular comments
-          node.querySelectorAll('.comment:not(article[data-id="i_answer"]):not(article#qaContentViewId)').forEach(element => {
+          node.querySelectorAll('.comment:not(article[data-id="i_answer"]):not(article[data-id="s_answer"]):not(article#qaContentViewId)').forEach(element => {
             if (!processedElements.has(element)) {
               processedElements.add(element);
               addDislikeButton(element);
